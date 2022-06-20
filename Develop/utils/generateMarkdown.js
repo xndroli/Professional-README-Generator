@@ -3,11 +3,11 @@
 function renderLicenseBadge(license) {
   if (license !== 'no license') {
     return `
-  ![badge](https://img.shields.io/badge/license-${license}-blue)
+      ![badge](https://img.shields.io/badge/license-${license}-blue)
     `;
   } else {
-    return ' ';
-  }
+      return ' ';
+  };
 };
 
 // TODO: Create a function that returns the license link
@@ -15,11 +15,11 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (license !== 'no license') {
     return `
-    [${license}](https://choosealicense.com/licenses/${license})
-      `;
-    } else {
+      [${license}](https://choosealicense.com/licenses/${license})
+    `;
+  } else {
       return ' ';
-    }
+  };
 };
 
 // TODO: Create a function that returns the license section of README
@@ -27,13 +27,13 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license !== 'no license') {
     return `
-    ## [License](#table-of-contents)
-    The application is covered under the following license:
-    ${renderLicenseLink(license)}
-      `;
-    } else {
-      return ' ';
-    }
+      ## [License](#table-of-contents)
+      The application is covered under the following license:
+      ${renderLicenseLink(license)}
+    `;
+  } else {
+    return ' ';
+  };
 };
 
 // TODO: Create a function to generate markdown for README
@@ -41,7 +41,7 @@ function generateMarkdown(data) {
   return `
   # ${data.title}
 
-  ## Licensing:
+  ## License:
   ${renderLicenseBadge(data.license)}
   
   ## Table of Contents 
