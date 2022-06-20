@@ -9,7 +9,7 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: "What's the title of your project?",
+        message: "What's the title of this project?",
         validate(answer) {
             if (answer.length > 1) {
                 return true;
@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: "What's your project description?",
+        message: "What's this projects' description?",
         validate(answer) {
             if (answer.length > 1) {
                 return true;
@@ -32,31 +32,31 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: "What are your installation instructions?",
+        message: "What are the installation instructions?",
         validate(answer) {
             if (answer.length > 1) {
                 return true;
             }
     
-            return 'Please list installation instructions for your application';
+            return 'Please list installation instructions for this application';
         },
     },
     {
         type: 'input',
         name: 'usage',
-        message: "What's your project application usage?",
+        message: "What's this projects' application usage?",
         validate(answer) {
             if (answer.length > 1) {
                 return true;
             }
     
-            return 'Please explain instructions for using your application';
+            return 'Please explain instructions for using this application';
         },
     },
     {
         type: 'list',
         name: 'license',
-        message: "Choose a license for your project.",
+        message: "Choose a license for this project.",
         choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
         validate(answer) {
             if (answer.length = 1) {
@@ -68,14 +68,26 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributors',
-        message: "Who are your project contributors?",
+        name: 'contributing',
+        message: "What are the guidelines for contributing to this project?",
         validate(answer) {
             if (answer.length > 1) {
                 return true;
             }
     
-            return 'Please list who contributed to your project';
+            return 'Please explain the guidelines for contributing to this project';
+        },
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: "How do users test this application?",
+        validate(answer) {
+            if (answer.length > 1) {
+                return true;
+            }
+    
+            return 'Please explain how to test this application';
         },
     },
     {
@@ -133,7 +145,7 @@ async function init() {
         console.log(markdown);
     
         // Write markdown to file
-        await writeFileAsync('ExampleREADME.md', markdown);
+        await writeFileAsync('ProfessionalREADME.md', markdown);
 
     } catch (err) {
         console.log('Oops.. An error occured: ' + err);

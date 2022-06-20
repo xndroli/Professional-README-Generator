@@ -3,7 +3,7 @@
 function renderLicenseBadge(license) {
   if (license !== 'no license') {
     return `
-      ![badge](https://img.shields.io/badge/license-${license}-blue)
+    ![badge](https://img.shields.io/badge/license-${license}-blue)
     `;
   } else {
       return ' ';
@@ -15,7 +15,7 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (license !== 'no license') {
     return `
-      [${license}](https://choosealicense.com/licenses/${license})
+    [${license}](https://choosealicense.com/licenses/${license})
     `;
   } else {
       return ' ';
@@ -27,9 +27,9 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license !== 'no license') {
     return `
-      ## [License](#table-of-contents)
-      The application is covered under the following license:
-      ${renderLicenseLink(license)}
+    ## [License](#table-of-contents)
+    This application is covered under the following license:
+    ${renderLicenseLink(license)}
     `;
   } else {
     return ' ';
@@ -41,7 +41,6 @@ function generateMarkdown(data) {
   return `
   # ${data.title}
 
-  ## License:
   ${renderLicenseBadge(data.license)}
   
   ## Table of Contents 
@@ -49,7 +48,7 @@ function generateMarkdown(data) {
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
-  ${renderLicenseSection(data.license)}
+  * [License](#license)${(data.license)}
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
@@ -66,15 +65,17 @@ function generateMarkdown(data) {
   ## [License](#table-of-contents)
   ${renderLicenseSection(data.license)}}
 
-  ## [Contribution](#table-of-contents)
-  ${data.contribution}
+  ## [Contributing](#table-of-contents)
+  ${data.contributing}
 
-  ## [Testing](#table-of-contents)
-  ${data.testing}
+  ## [Tests](#table-of-contents)
+  ${data.tests}
 
   ## [Questions](#table-of-contents)
-  - Github: [${data.github}](https://github.com/${data.github})
-  - Email: ${data.email} 
+  
+  [Github](https://github.com/${data.githubUsername})
+  
+  [Email: ${data.email}](mailto:${data.email})
 `;
 }
 
